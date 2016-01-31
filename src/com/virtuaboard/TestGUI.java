@@ -18,7 +18,8 @@ import com.tejashah.ws.api.Point;
 import com.tejashah.ws.api.Stroke;
 
 public class TestGUI extends JFrame {
-	static final String myScriptApplicationKey = "8b0d1c85-07ba-4d5c-9375-81702c7eda9b";
+	static final String myScriptApplicationKey = "118891a7-8d0d-4f6e-9c62-bf9919e9c92c";
+	static final String altMyScriptApplicationKey = "16cb6bf8-8c08-4de8-858d-f66348a084f0";
 	static final String myScriptRecognitionCloudURL = "http://cloud.myscript.com/api/v3.0/recognition/rest/text/doSimpleRecognition.json";
 	
 	Dimension d = new Dimension(645, 530);
@@ -28,7 +29,7 @@ public class TestGUI extends JFrame {
 	TextField resultText;
 	//TextArea history;
 	
-	static final int THRESHOLD = 25;
+	static final int THRESHOLD = 30;
 	static final int FRAME_RECORD_COUNT = 1;
 	static final boolean textConvertingEnabled = !false;
 	

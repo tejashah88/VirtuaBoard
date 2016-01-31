@@ -6,7 +6,7 @@ import com.leapmotion.leap.Controller;
 import com.leapmotion.leap.Vector;
 
 /**
- * @author Vivian, Grace, Akarsh, JC
+ * @author NOT THESE GUYS ---> (Vivian, Grace, Akarsh, JC), BUT THIS GUY ---> Tejas Shah 
  * @version 10/23/15
  * 			
  * This class is used to test/run the actual app.
