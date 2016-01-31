@@ -4,13 +4,12 @@ import com.leapmotion.leap.Bone;
 import com.leapmotion.leap.Controller;
 import com.leapmotion.leap.Finger.Type;
 import com.leapmotion.leap.Frame;
-import com.leapmotion.leap.Gesture;
 import com.leapmotion.leap.Listener;
 import com.leapmotion.leap.Tool;
 import com.leapmotion.leap.Vector;
 
 /**
- * @author Tejas, and whoever is working on this
+ * @author Tejas
  * @version 10/23/15
  * 
  * This class is currently based on the SampleListener, which prints a lot of debug motion.
@@ -33,10 +32,10 @@ public class MyScriptListener extends Listener {
 	public void onConnect(Controller controller) {
 		System.out.println("Connected");
 		//controller.bugReport().beginRecording();
-		controller.enableGesture(Gesture.Type.TYPE_SWIPE);
+		/*controller.enableGesture(Gesture.Type.TYPE_SWIPE);
 		controller.enableGesture(Gesture.Type.TYPE_CIRCLE);
 		controller.enableGesture(Gesture.Type.TYPE_SCREEN_TAP);
-		controller.enableGesture(Gesture.Type.TYPE_KEY_TAP);
+		controller.enableGesture(Gesture.Type.TYPE_KEY_TAP);*/
 	}
 	
 	@Override
@@ -78,7 +77,7 @@ public class MyScriptListener extends Listener {
 			Vector end = tool.tipPosition();
 			vlisten.onVectorReceived(end);
 		}
-	
+		
 		/*
 		// Get tools
 		for (Tool tool : frame.tools()) {

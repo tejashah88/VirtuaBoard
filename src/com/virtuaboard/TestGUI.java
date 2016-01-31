@@ -31,7 +31,6 @@ public class TestGUI extends JFrame {
 	
 	static final int THRESHOLD = 30;
 	static final int FRAME_RECORD_COUNT = 1;
-	static final boolean textConvertingEnabled = !false;
 	
 	MyScriptCloud cloudSDK;
 	
@@ -95,7 +94,6 @@ public class TestGUI extends JFrame {
 			g.drawOval(x, y, 3, 3);
 		}
 		
-		@SuppressWarnings("unused")
 		public void updatePoints(Vector v) {
 			int x = (int) v.getX() + this.getX() + (this.getWidth() / 2);
 			int y = this.getHeight() - ((int) v.getY() + this.getY() + (int) (this.getHeight() / 6.5));
@@ -129,7 +127,7 @@ public class TestGUI extends JFrame {
 					
 					points.clear();
 					
-					if (textConvertingEnabled) {
+					if (true) {
 						Stroke stroke = new Stroke(msPoints.toArray(new Point[0]));
 						try {
 							String result = cloudSDK.recognize(new Stroke[] {stroke});
