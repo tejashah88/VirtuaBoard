@@ -6,6 +6,8 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.TextField;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -70,11 +72,44 @@ public class TestGUI extends JFrame {
 		boolean isDrawing = false;
 		int x, y;
 		
+		ArrayList<Point> msPoints = new ArrayList<>();
+		
 		public MyPanel() {
 			super();
 			setSize(d1);
 			setPreferredSize(d1);
 			setBackground(Color.PINK);
+			
+			addKeyListener(new KeyListener() {
+				@Override
+				public void keyTyped(KeyEvent e) {
+				}
+				
+				@Override
+				public void keyReleased(KeyEvent e) {
+					if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+						points.clear();
+						
+						if (true) {
+							Stroke stroke = new Stroke(msPoints.toArray(new Point[0]));
+							try {
+								String result = cloudSDK.recognize(new Stroke[] {stroke});
+								resultText.setText(resultText.getText() + result);
+								//history.append(result + "\n");
+								System.out.println("Result: " + result);
+							} catch (IOException ex) {
+								ex.printStackTrace();
+							}
+						}
+						
+						msPoints.clear();
+					}
+				}
+				
+				@Override
+				public void keyPressed(KeyEvent e) {
+				}
+			});
 		}
 		
 		@Override
@@ -118,25 +153,9 @@ public class TestGUI extends JFrame {
 				if (isDrawing) {
 					isDrawing = false;
 					
-					ArrayList<Point> msPoints = new ArrayList<>();
-					
 					for (int[] arr : points) {
 						Point p = new Point(arr[0], arr[1]);
 						msPoints.add(p);
-					}
-					
-					points.clear();
-					
-					if (true) {
-						Stroke stroke = new Stroke(msPoints.toArray(new Point[0]));
-						try {
-							String result = cloudSDK.recognize(new Stroke[] {stroke});
-							resultText.setText(resultText.getText() + result);
-							//history.append(result + "\n");
-							System.out.println("Result: " + result);
-						} catch (IOException e) {
-							e.printStackTrace();
-						}
 					}
 				}
 			}
